@@ -6,7 +6,8 @@ import (
 
 const (
 	earthRadiusMi = 3958 // radius of the earth in miles.
-	earthRaidusKm = 6371 // radius of the earth in kilometers.
+	earthRadiusKm = 6371 // radius of the earth in kilometers.
+	earthRadiusNM = 3440 // radius of the earth in nautical miles
 )
 
 // Coord represents a geographic coordinate.
@@ -20,10 +21,19 @@ func degreesToRadians(d float64) float64 {
 	return d * math.Pi / 180
 }
 
+// nmToKm converts from nautical miles to kilometers.
+func nmToKm(d float64) float64 {
+	return d * earthRadiusKm / earthRadiusNM
+}
+
+// nmToMi converts from nautical miles to statute miles.
+func nmToMi(d float64) float64 {
+	return d * earthRadiusMi / earthRadiusNM
+}
+
 // Distance calculates the shortest path between two coordinates on the surface
-// of the Earth. This function returns two units of measure, the first is the
-// distance in miles, the second is the distance in kilometers.
-func Distance(p, q Coord) (mi, km float64) {
+// of the Earth and returns the result in nautical miles.
+func Distance(p, q Coord) (nm float64) {
 	lat1 := degreesToRadians(p.Lat)
 	lon1 := degreesToRadians(p.Lon)
 	lat2 := degreesToRadians(q.Lat)
@@ -37,8 +47,17 @@ func Distance(p, q Coord) (mi, km float64) {
 
 	c := 2 * math.Atan2(math.Sqrt(a), math.Sqrt(1-a))
 
-	mi = c * earthRadiusMi
-	km = c * earthRaidusKm
+	return c * earthRadiusNM
+}
 
-	return mi, km
+// DistanceKm calculates the shortest path between two coordinates on the surface
+// of the Earth and returns the result in kilometers.
+func DistanceKm(p, q Coord) (km float64) {
+	return nmToKm(Distance(p, q))
+}
+
+// DistanceMi calculates the shortest path between two coordinates on the surface
+// of the Earth and returns the result in statute miles.
+func DistanceMi(p, q Coord) (mi float64) {
+	return nmToMi(Distance(p, q))
 }
