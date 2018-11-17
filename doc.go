@@ -16,19 +16,18 @@ coordinates on the surface of the Earth.
     )
 
     func main() {
-        oxford := haversine.Coord{Lat: 51.45, Lon: 1.15}  // Oxford, UK
-        turin  := haversine.Coord{Lat: 45.04, Lon: 7.42}  // Turin, Italy
+        austin := haversine.Coord{ // Austin, Texas
+            Lat: 30.2672,
+            Lon: -97.7431,
+        }
+        paloAlto := haversine.Coord{ // Palo Alto, California
+            Lat: 37.4419,
+            Lon: 122.1430,
+        }
 
-        nm := haversine.Distance(oxford, turin)
+        nm := haversine.Distance(austin, paloAlto)
 
-        fmt.Println("Nautical Miles:", nm)
-
-        // Distance can be obtained in other common units
-        km := haversine.DistanceKm(oxford, turin)
-        fmt.Println("Kilometers:", km)
-
-        mi := haversine.DistanceMi(oxford, turin)
-        fmt.Println("Statute Miles:", mi)
+        fmt.Printf("%.1f miles is a long walk to Silicon Valley.\n", nm)
     }
 */
 package haversine

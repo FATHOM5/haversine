@@ -14,8 +14,8 @@ The curvature of the earth means that shortest distance between two points canno
 
 ## Usage
 
-The below example shows how to calculate the shortest path between two 
-coordinates on the surface of the Earth.
+The example below shows how far I'd have to walk in my boots to go visit my
+co-founder.
 
     package main
 
@@ -26,12 +26,18 @@ coordinates on the surface of the Earth.
     )
 
     func main() {
-        oxford := haversine.Coord{Lat: 51.45, Lon: 1.15}  // Oxford, UK
-        turin  := haversine.Coord{Lat: 45.04, Lon: 7.42}  // Turin, Italy
+        austin := haversine.Coord{ // Austin, Texas
+            Lat: 30.2672,
+            Lon: -97.7431,
+        }
+        paloAlto := haversine.Coord{ // Palo Alto, California
+            Lat: 37.4419,
+            Lon: 122.1430,
+        }
 
-        nm := haversine.Distance(oxford, turin)
+        nm := haversine.Distance(austin, paloAlto)
 
-        fmt.Println("Nautical Miles:", nm)
+        fmt.Printf("%.1f miles is a long walk to Silicon Valley.\n", nm)
     }
 
 ## Documenation
