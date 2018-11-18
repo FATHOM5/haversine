@@ -1,10 +1,10 @@
-# Created by https://www.gitignore.io
-
 ### Go ###
 # Compiled Object files, Static and Dynamic libs (Shared Objects)
 *.o
 *.a
 *.so
+*.out
+*.cov
 
 # Folders
 _obj

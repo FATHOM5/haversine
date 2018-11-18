@@ -1,11 +1,17 @@
 language: go
+go:
+    - 1.10.x
+    - 1.11.x
+
+before_install:
+- go get golang.org/x/tools/cmd/cover
+- go get github.com/mattn/goveralls
 
 install:
     - go get -t -v
 
 script:
-    - go test -v
+- go test -v -covermode=count -coverprofile=profile.cov
 
-go:
-    - 1.10.x
-    - 1.11.x
+after_success:
+- goveralls -coverprofile=profile.cov -service=travis-ci
