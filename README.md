@@ -1,6 +1,8 @@
 [![GoDoc Reference](http://img.shields.io/badge/godoc-reference-5272B4.svg?style=flat-square)](http://godoc.org/github.com/FATHOM5/haversine)
 [![Build Status](https://travis-ci.org/FATHOM5/haversine.svg?branch=master)](https://travis-ci.org/FATHOM5/haversine)
 [![Go Report Card](https://goreportcard.com/badge/github.com/FATHOM5/haversine?style=flat-square)](https://goreportcard.com/report/github.com/FATHOM5/haversine)
+[![Coverage Status](https://coveralls.io/repos/github/FATHOM5/haversine/badge.svg?branch=master)](https://coveralls.io/github/FATHOM5/haversine?branch=master)
+
 ## Haversine
 
 Package haversine provides the great circle distance between two points on the surface of the earth.  Points are identified by latitude and longitude, and distance results can be returned in nautical miles, statute miles, or kilometers.  
