@@ -7,7 +7,7 @@ import (
 	"github.com/FATHOM5/haversine"
 )
 
-func Example() {
+func ExampleDistance() {
 	austin := haversine.Coord{ // Austin, Texas
 		Lat: 30.2672,
 		Lon: -97.7431,
