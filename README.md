@@ -34,12 +34,14 @@ co-founder.
         }
         paloAlto := haversine.Coord{ // Palo Alto, California
             Lat: 37.4419,
-            Lon: 122.1430,
+            Lon: -122.1430,
         }
 
         nm := haversine.Distance(austin, paloAlto)
 
         fmt.Printf("%.1f miles is a long walk to Silicon Valley.\n", nm)
+
+	// Output: 1286.1 miles is a long walk to Silicon Valley.
     }
 
 ## Documenation
