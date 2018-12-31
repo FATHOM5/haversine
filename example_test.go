@@ -20,4 +20,6 @@ func ExampleDistance() {
 	nm := haversine.Distance(austin, paloAlto)
 
 	fmt.Printf("%.1f miles is a long walk to Silicon Valley.\n", nm)
+
+	// Output: 6165.7 miles is a long walk to Silicon Valley.
 }
