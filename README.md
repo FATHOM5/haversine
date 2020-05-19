@@ -23,6 +23,7 @@ co-founder.
 
     import (
         "fmt"
+	"math"
 
         "github.com/FATHOM5/haversine"
     )
