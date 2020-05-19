@@ -38,7 +38,7 @@ co-founder.
             Lon: -122.1430,
         }
 
-        nm := haversine.Distance(austin, paloAlto)
+        nm := haversine.DistanceNM(austin, paloAlto)
 
         fmt.Printf("%.1f miles is a long walk to Silicon Valley.\n", nm)
         fmt.Printf("it's only %.1f miles on the moon, though.\n", haversine.Distance(austin, paloAlto, 937.9))
