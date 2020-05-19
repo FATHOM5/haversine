@@ -2,117 +2,117 @@
 package haversine_test
 
 import (
-	"fmt"
+        "fmt"
 
-	"github.com/FATHOM5/haversine"
+        "github.com/FATHOM5/haversine"
 )
 
 func ExampleDistanceNM() {
-	austin := haversine.Coord{ // Austin, Texas
-		Lat: 30.2672,
-		Lon: -97.7431,
-	}
-	paloAlto := haversine.Coord{ // Palo Alto, California
-		Lat: 37.4419,
-		Lon: -122.1430,
-	}
+        austin := haversine.Coord{ // Austin, Texas
+                Lat: 30.2672,
+                Lon: -97.7431,
+        }
+        paloAlto := haversine.Coord{ // Palo Alto, California
+                Lat: 37.4419,
+                Lon: -122.1430,
+        }
 
-	nm := haversine.DistanceNM(austin, paloAlto)
+        nm := haversine.DistanceNM(austin, paloAlto)
 
-	fmt.Printf("%.1f miles is a long walk to Silicon Valley.\n", nm)
+        fmt.Printf("%.1f miles is a long walk to Silicon Valley.\n", nm)
 
-	// Output: 1286.1 miles is a long walk to Silicon Valley.
+        // Output: 1286.1 miles is a long walk to Silicon Valley.
 }
 
 func ExampleDistance() {
-	austin := haversine.Coord{ // Austin, Texas
-		Lat: 30.2672,
-		Lon: -97.7431,
-	}
-	paloAlto := haversine.Coord{ // Palo Alto, California
-		Lat: 37.4419,
-		Lon: -122.1430,
-	}
+        austin := haversine.Coord{ // Austin, Texas
+                Lat: 30.2672,
+                Lon: -97.7431,
+        }
+        paloAlto := haversine.Coord{ // Palo Alto, California
+                Lat: 37.4419,
+                Lon: -122.1430,
+        }
 
-	km := haversine.Distance(austin, paloAlto, 58230)
+        km := haversine.Distance(austin, paloAlto, 58230)
 
-	fmt.Printf("%.1f km is a long walk to Silicon Valley on Saturn.\n", km)
+        fmt.Printf("%.1f km is a long walk to Silicon Valley on Saturn.\n", km)
 
-	// Output: 21770.2 km is a long walk to Silicon Valley on Saturn.
+        // Output: 21770.2 km is a long walk to Silicon Valley on Saturn.
 }
 
 func ExampleIntAngle() {
-	austin := haversine.Coord{ // Austin, Texas
-		Lat: 30.2672,
-		Lon: -97.7431,
-	}
-	paloAlto := haversine.Coord{ // Palo Alto, California
-		Lat: 37.4419,
-		Lon: -122.1430,
-	}
+        austin := haversine.Coord{ // Austin, Texas
+                Lat: 30.2672,
+                Lon: -97.7431,
+        }
+        paloAlto := haversine.Coord{ // Palo Alto, California
+                Lat: 37.4419,
+                Lon: -122.1430,
+        }
 
-	radians := haversine.IntAngle(austin, paloAlto)
+        radians := haversine.IntAngle(austin, paloAlto)
 
-	fmt.Printf("%.4f radians is a long walk to Silicon Valley, perhaps.\n", radians)
+        fmt.Printf("%.4f radians is a long walk to Silicon Valley, perhaps.\n", radians)
 
-	// Output: 0.3739 radians is a long walk to Silicon Valley, perhaps.
+        // Output: 0.3739 radians is a long walk to Silicon Valley, perhaps.
 }
 
 func ExampleNmToKm() {
-	fmt.Printf("One degree is 60 NM which is %.1f kilometers\n", haversine.NmToKm(60))
+        fmt.Printf("One degree is 60 NM which is %.1f kilometers\n", haversine.NmToKm(60))
 
-	// Output: One degree is 60 NM which is 111.1 kilometers
+        // Output: One degree is 60 NM which is 111.1 kilometers
 }
 
 func ExampleDegrees() {
-	// a planety thing
-	type planet struct {
-		name string
-		r float64
-	}
+        // a planety thing
+        type planet struct {
+                name string
+                r float64
+        }
 
-	// km radius
-	var solarSystem = []planet {
-		{"the Sun",695700},
-		{"the Moon",1737},
-		{"Mercury",2440},
-		{"Venus",6051},
-		{"Earth",6371},
-		{"Mars",3390},
-		{"Jupiter",69910},
-		{"Saturn",58230},
-		{"Uranus",25360},
-		{"Neptune",24620},
-		{"the unit sphere",1},
-		// Sorry, Pluto, you got kicked to the curb, dude.
-		// Your sorry ass is even smaller than the moon, anyway, so,
-		// "Meh" is what I say to you. Sorry, Clyde. I love you, man.
-	}
+        // km radius
+        var solarSystem = []planet {
+                {"the Sun",695700},
+                {"the Moon",1737},
+                {"Mercury",2440},
+                {"Venus",6051},
+                {"Earth",6371},
+                {"Mars",3390},
+                {"Jupiter",69910},
+                {"Saturn",58230},
+                {"Uranus",25360},
+                {"Neptune",24620},
+                {"the unit sphere",1},
+                // Sorry, Pluto, you got kicked to the curb, dude.
+                // Your sorry ass is even smaller than the moon, anyway, so,
+                // "Meh" is what I say to you. Sorry, Clyde. I love you, man.
+        }
 
-	// a winter seaside resort town
-	wilbur := haversine.Coord{29.13, -80.97}
-	fmt.Println("Wilbur-by-the-Sea is here:", wilbur)
+        // a winter seaside resort town
+        wilbur := haversine.Coord{29.13, -80.97}
+        fmt.Println("Wilbur-by-the-Sea is here:", wilbur)
 
-	b := wilbur.Radians()
-	fmt.Println(" which, in radians, is", b)
-	fmt.Println(" and inverted back to degrees yields", b.Degrees())
+        b := wilbur.Radians()
+        fmt.Println(" which, in radians, is", b)
+        fmt.Println(" and inverted back to degrees yields", b.Degrees())
 
-	// it's antipode, a not winter not seaside not resort town
-	summerhills := haversine.Coord{45.71, -122.43}
-	fmt.Println("Summer Hills, however, is here:", summerhills)
+        // it's antipode, a not winter not seaside not resort town
+        summerhills := haversine.Coord{45.71, -122.43}
+        fmt.Println("Summer Hills, however, is here:", summerhills)
 
-	// regardless of sphere, what's the angle?
-	fmt.Printf(" That's an angular distance of %.4f radians\n", haversine.IntAngle(wilbur, summerhills))
-	fmt.Printf(" or %.2f degrees\n", 180 / 3.14159 * haversine.IntAngle(wilbur, summerhills))
-	fmt.Printf(" so from Wilbur to Summer Hills is %.0f miles.\n", haversine.DistanceMi(wilbur, summerhills))
+        // regardless of sphere, what's the angle?
+        fmt.Printf(" That's an angular distance of %.4f radians\n", haversine.IntAngle(wilbur, summerhills))
+        fmt.Printf(" or %.2f degrees\n", 180 / 3.14159 * haversine.IntAngle(wilbur, summerhills))
+        fmt.Printf(" so from Wilbur to Summer Hills is %.0f miles.\n", haversine.DistanceMi(wilbur, summerhills))
 
-	// if this were a solar system object
-	for _, v := range solarSystem {
-		fmt.Printf("On %s, that would be %.1f miles or %.1f days of driving\n", v.name, haversine.Distance(wilbur, summerhills, haversine.NmToMi(haversine.KmToNm(v.r))), 6*v.r/6371)
-	}
+        // if this were a solar system object
+        for _, v := range solarSystem {
+                fmt.Printf("On %s, that would be %.1f miles or %.1f days of driving\n", v.name, haversine.Distance(wilbur, summerhills, haversine.NmToMi(haversine.KmToNm(v.r))), 6*v.r/6371)
+        }
 
-	// Output:
-	// Wilbur-by-the-Sea is here: {29.13 -80.97}
+        // Output:
+        // Wilbur-by-the-Sea is here: {29.13 -80.97}
         //  which, in radians, is {0.5084144111059482 -1.4131930953398086}
         //  and inverted back to degrees yields {29.130000000000003 -80.97}
         // Summer Hills, however, is here: {45.71 -122.43}

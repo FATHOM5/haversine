@@ -13,7 +13,7 @@ coordinates on the surface of the Earth.
 
     import (
         "fmt"
-	"math"
+        "math"
 
         "github.com/FATHOM5/haversine"
     )
@@ -32,7 +32,7 @@ coordinates on the surface of the Earth.
 
         fmt.Printf("%.1f miles is a long walk to Silicon Valley.\n", nm)
         fmt.Printf("it's only %.1f miles on the moon, though.\n", haversine.Distance(austin, paloAlto, 937.9))
-	fmt.Printf("That's an angle of %.1f degrees\n", 180/math.Pi*haversine.IntAngle(austin, paloAlto))
+        fmt.Printf("That's an angle of %.1f degrees\n", 180/math.Pi*haversine.IntAngle(austin, paloAlto))
     }
 */
 package haversine
