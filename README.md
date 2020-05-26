@@ -63,7 +63,3 @@ co-founder.
 ## License
 
 See [LICENSE](LICENSE.md) for rights and limitations (MIT).
-
-    }
-*/
-package haversine
