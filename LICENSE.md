@@ -1,8 +1,6 @@
-The MIT License (MIT)
+MIT License
 
-Original Work Copyright (c) 2015 Usman Mahmood
-
-Derivative Work Copyright (c) 2018 FATHOM5 Corporation 
+Copyright (c) 2018 FATHOM5 Corporation
 
 Derivative Work Copyright (c) 2020 Moles & Halitosis
 
@@ -23,4 +21,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-

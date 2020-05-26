@@ -16,7 +16,7 @@ type Coord struct {
 	Lon float64
 }
 
-// Radians converts a radians-based Coord to a degrees-based Coord
+// Degrees converts a radians-based Coord to a degrees-based Coord
 func (c *Coord) Degrees() Coord {
 	return Coord{c.Lat * 180 / math.Pi, c.Lon * 180 / math.Pi}
 }
