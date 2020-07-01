@@ -1,3 +1,3 @@
-module github.com/FATHOM5/haversine
+module github.com/loraxipam/haversine
 
 go 1.14
