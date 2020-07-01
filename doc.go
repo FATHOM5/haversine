@@ -15,7 +15,7 @@ coordinates on the surface of the Earth.
         "fmt"
         "math"
 
-        "github.com/FATHOM5/haversine"
+        "github.com/loraxipam/haversine"
     )
 
     func main() {

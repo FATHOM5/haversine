@@ -4,7 +4,7 @@ package haversine_test
 import (
 	"fmt"
 
-	"github.com/FATHOM5/haversine"
+	"github.com/loraxipam/haversine"
 )
 
 func ExampleDistanceNM() {

@@ -4,7 +4,7 @@ import (
 	"math"
 	"testing"
 
-	"github.com/FATHOM5/haversine"
+	"github.com/loraxipam/haversine"
 )
 
 // Great circle calculations are really only valid for about four sig figs
