@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/FATHOM5/haversine.svg?branch=master)](https://travis-ci.org/FATHOM5/haversine)
 [![Go Report Card](https://goreportcard.com/badge/github.com/FATHOM5/haversine?style=flat-square)](https://goreportcard.com/report/github.com/FATHOM5/haversine)
 [![Coverage Status](https://coveralls.io/repos/github/FATHOM5/haversine/badge.svg?branch=master)](https://coveralls.io/github/FATHOM5/haversine?branch=master)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=FATHOM5_haversine&metric=alert_status)](https://sonarcloud.io/dashboard?id=FATHOM5_haversine)
 
 ## Haversine
 
