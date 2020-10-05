@@ -17,6 +17,8 @@ addons:
 before_install:
 - go get golang.org/x/tools/cmd/cover
 - go get github.com/mattn/goveralls
+- curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.31.0
+- golangci-lint --version
 
 install:
     - go get -t -v
@@ -25,6 +27,7 @@ script:
 - go test -v -covermode=count -coverprofile=profile.cov
 - go test -json > gotest-report.json
 - go vet -json > govet-report.json
+- golangci-lint run ./... --out-format checkstyle > lint-report.out
 - goveralls -coverprofile=profile.cov -service=travis-ci
 - sonar-scanner
 
