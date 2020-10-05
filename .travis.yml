@@ -1,7 +1,18 @@
 language: go
+dist: focal
 go:
-    - 1.10.x
-    - 1.11.x
+    - 1.14.x
+    - 1.15.x
+
+env:
+  global:
+    # SONAR_TOKEN=<travis 2>
+    - secure: "FY1FrBT7mS9pptYBc7IYjEFw/r2i6rsYgBy7eK0gWBKjXYL4jqtISuvSh7YIhOcGRXZHeI9CEF/y+OTn7vjA7h/MS4U37QK9adyiOpJFwGW9SWmqmGyGghY5Gp4J44+eWAStUl1mDOQxFqITpbIxec+2835vrP+4i3oqbWgT2cHoNfwqGQ32RbOQbUqIxdOgkRE/elQDlTAeniVOiKZC3Rita+Wl/8MmyhfZq5CRFH7VvvIAB6vvCxfLbxJzWLoqbwvV2mLthU/k5Ys8b9m5YRkwcFVusMQqSqXgllIDYH8IHQ/0aBOQaKlYKXbKukwBobTv28GlC7K3rf/i7rGS6v6ykqxrO3NZXHz+e9KwrGv+/8MwLA5JRHp5yNPt9WHuTdNm5VWTlhiZ31w6D1D0xYGJtXXlkGR2EzwwAXMiJ23whQW0noZfbMQS4/KNXNrnIw6kH62Beu+QiDiVnfXXbk4ncfh3x4uCdBk165qurxcmioiZg0lvMUJncHXlbli2xJ6sQ12K2sxXVDrzVVXWSaBL1XzYKyg+atAykJZ24SlkFoCEVTrPG2gWDwTPXODLMkxlz8n7yzZ8C3/Trx8dJ8jxOgzANvh92OFvUBq1Y9+KPRPB1f+zRAe+2d05yembfFryS1ghE+dI3rbpimvpbCtqUBirV+IAwCdpQmVSksM="
+
+addons:
+  sonarcloud:
+    organization: "fathom5"
+    token: ${SONAR_TOKEN}
 
 before_install:
 - go get golang.org/x/tools/cmd/cover
@@ -12,6 +23,11 @@ install:
 
 script:
 - go test -v -covermode=count -coverprofile=profile.cov
-
-after_success:
+- go test -json > gotest-report.json
+- go vet -json > govet-report.json
 - goveralls -coverprofile=profile.cov -service=travis-ci
+- sonar-scanner
+
+cache:
+  directories:
+    - '$HOME/.sonar/cache'
