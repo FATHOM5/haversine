@@ -2,13 +2,17 @@ language: go
 dist: focal
 go:
     - 1.14.x
-    - 1.15.x
+    # - 1.15.x
+
+env:
+  global:
+    # SONAR_TOKEN=<travis 2>
+    - secure: "uYM+nLaq6hHXqj37h4wkIBrBMSpi9C14u4dZciRbD0wZrye/crjV1QbrQiC7pDCcZPzOwmk7HQRS8d05oX4+dWY6hN7Moik973A6shUm+S/MZj8he0Qy7J+MuGU9DGcQjUA9dxq7PMs+FNj3D477Z2tgSPMPA98PQTxzs3K2i1NoAc7LXnJvrYi6RlszELW4UGEs4cYW1aOfWN0cLEdYMZYlObaCkOc1tOjNpOtEIa1zJNPXO1LeHCfEpq841DrxzSqi8yLZ/GNksAW6SNd2PYQfyzZvut6TZeNW7vBl+0dqOwKIixkBeHVl0Z4uB8kzaf5p8v0vK+QSjnMmMsmEkdLKqdl0rQWkzqKcVNwgTnUYiCLFyYXybQ+/gMsRPfcn2gt7WRliPd3+oC301v68B3Lb8Wo7D2lofgvNu7AZOyWP+rpPBZhFeEvXMvIurLIXKtjPJNxcaXdLyQtRy5Z/Y7kyf28JD2ZUENWgDo4eaCXFHui6ZkeL0t4jcQ7mYlqP7cOJtCKi/46RIO6tIpE6Ux9PTR++SPQCnGOjzi2VTgt2+lb0yPI/TW59lC6mh6wr3YJHHwXB8kW15RF5bq01en5mWsJt8g5s40/t+FCVmZDKmxdTsfUcl75+Pcu8WjZL5qQSjEGFfHGUNyvdsy7IJFGMp4Drf2zMf3j3cGhP4Hw="
 
 addons:
   sonarcloud:
     organization: "fathom5"
-    token:
-      - secure: "CIypLNW0wY0OV3pYprIXioKF48zVdUw3yd3pmGpBfDFAAN8fWa+TAI3Yyy4IrB88xFYCs4iQjvzMVhLE7vzqr4w6CTiLG42Uu+2pa2ylh/X0b4jwR1G5c07uh5FVnfqWc81Rf9MKENa/VGVcyu0hx3NGSI2qbi/WpiCJukZolI16f9FCHxY434N7jAXDXlAvahG55EFehXVX31oNIOZcZw6JpH5oSwUxDH4A/WjSpV7vKmnIhYCWaNhWqciJ6SNzhnG/PeQST9UYpgmZaio9gvj7y+z3dQVMttCnwInNUFSUp4GA3kKNp7bq5PN5V5Wy5DZ2nq4qeK5UERhKleAonSkpIeYjYrpihjRgKp4UvdNeh1esN328H2IuRSR1tCyac0Lx1SVW1Ui0ZDHatqlMBkYpF3j73hts7h8M4MA+Uq3Q7zS5G4ol3fgq1Ss0zysBQJzB0z4jKNG3m5zFRyiWnT6EykmSW02+lDWAVbrvwbn7na3tK/Tc/7QKYS3bUuVljOMHLai4O7t3VPoTmfOlMfWmcQvVRnJVstyVh/fK1JDQVRyKPXTqk/BxYkBX4oUcvD08MM+r8sc9SfV4yOo49zhsD/+Dd5V6dirGdMyC0SIaxCa1C1uWTmLFcnjEEpXJGvfwErY0tzdd7Nfe7azEiZhYuSs61sea4u3bdlmrBww="
+    token: ${SONAR_TOKEN}
 
 before_install:
 - go get golang.org/x/tools/cmd/cover
@@ -19,6 +23,8 @@ install:
 
 script:
 - go test -v -covermode=count -coverprofile=profile.cov
+- go test -json > gotest-report.json
+- go vet -json > govet-report.json
 - goveralls -coverprofile=profile.cov -service=travis-ci
 - sonar-scanner
 
