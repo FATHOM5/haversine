@@ -1,5 +1,5 @@
 kind: pipeline
-type: ssh
+type: docker
 name: default
 
 steps:
