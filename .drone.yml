@@ -1,9 +1,14 @@
 kind: pipeline
-type: docker
+type: ssh
 name: default
+
+server:
+  host: localhost
+  user: kyle
+  password: dronepassword
 
 steps:
 - name: greeting
-  image: golang:1.14
   commands:
-  - go test -v
+  - echo hello world
+  - pwd
