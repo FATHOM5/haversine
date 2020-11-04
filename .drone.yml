@@ -1,13 +1,12 @@
 kind: pipeline
-type: ssh
+type: exec
 name: default
 
-server:
-  host: localhost
-  user: kyle
-  password: dronepassword
+platform:
+    os: linux
+    arch: amd64
 
 steps:
 - name: greeting
   commands:
-  - ls /home/kyle
+  - ls /home/mike
