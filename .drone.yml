@@ -4,7 +4,6 @@ name: default
 
 steps:
 - name: greeting
-  image: alpine
+  image: golang:1.14
   commands:
-  - echo hello
-  - echo world
+  - go test -v
